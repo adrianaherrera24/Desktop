@@ -171,5 +171,10 @@ public class Control {
     public List<Usuario> obtenerUsuarios() throws GlobalException, NoDataException{
         return su.listarUsuarios();
     }
+    
+    public List<Curso> obtenerCursoPorCarrera(String carrera) throws NoDataException, GlobalException {
+        List<Curso> cursos = scc.buscarCursosPorCarrera(carrera);
+        return cursos;
+    }
  
 }

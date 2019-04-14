@@ -8,6 +8,7 @@ package MVCCarrera;
 import LogicaNegocio.Carrera;
 import java.util.Observable;
 import javax.swing.JOptionPane;
+import principal.Principal;
 
 /**
  *
@@ -81,6 +82,7 @@ public class CarreraVista extends javax.swing.JFrame implements java.util.Observ
         JLtitulo = new javax.swing.JLabel();
         TFtitulo = new javax.swing.JTextField();
         JBguardar = new javax.swing.JButton();
+        JBeditar = new javax.swing.JButton();
 
         setTitle("CARRERA");
 
@@ -101,14 +103,25 @@ public class CarreraVista extends javax.swing.JFrame implements java.util.Observ
             }
         });
 
+        JBeditar.setBackground(new java.awt.Color(102, 153, 255));
+        JBeditar.setText("Editar Cursos");
+        JBeditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBeditarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(JBguardar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(JBeditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JBguardar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JLcodigo)
@@ -136,9 +149,11 @@ public class CarreraVista extends javax.swing.JFrame implements java.util.Observ
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(JLtitulo)
                     .addComponent(TFtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGap(27, 27, 27)
+                .addComponent(JBeditar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(JBguardar)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -148,7 +163,13 @@ public class CarreraVista extends javax.swing.JFrame implements java.util.Observ
         this.carreracontrol.agregarCarrera();
     }//GEN-LAST:event_JBguardarActionPerformed
 
+    private void JBeditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBeditarActionPerformed
+        Principal.EDITAR_CURSO.setLocation(this.JBeditar.getLocationOnScreen());
+        this.carreracontrol.edicionCursos();
+    }//GEN-LAST:event_JBeditarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBeditar;
     private javax.swing.JButton JBguardar;
     private javax.swing.JLabel JLcodigo;
     private javax.swing.JLabel JLnombre;

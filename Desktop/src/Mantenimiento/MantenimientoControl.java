@@ -8,6 +8,7 @@ package Mantenimiento;
 import AccesoDatos.GlobalException;
 import AccesoDatos.NoDataException;
 import Control.Control;
+import EditarCursos.EditarControl;
 import LogicaNegocio.Alumno;
 import LogicaNegocio.Carrera;
 import LogicaNegocio.Curso;
@@ -24,6 +25,8 @@ public class MantenimientoControl {
     Control controlPrincipal;
     MantenimientoModelo modelo;
     MantenimientoVista vista;
+    
+    String tipoCarrera;
     
     public MantenimientoControl(Control controlPrincipal, MantenimientoModelo modelo, MantenimientoVista vista) {
         modelo.init();
@@ -91,7 +94,7 @@ public class MantenimientoControl {
         controlPrincipal.opcionesAlumnos("ELIMINAR", modelo.getAlumnos().getRowAt(row).getId());
         this.listarAlumnos();
     }
-    
+   
     ////////////////////////////////////////////////////////////////////////////
     // METODOS CRUD - CARRERAS
     public void agregarCarrera(){       
@@ -194,6 +197,7 @@ public class MantenimientoControl {
             break;
             case Principal.CARRERA:
                 this.editarCarrera(fila);
+                EditarControl.filaCarrera = this.modelo.getCarreras().getRowAt(fila).getId();
             break;
             case Principal.CURSO:
                 this.editarCurso(fila);
@@ -218,6 +222,25 @@ public class MantenimientoControl {
             break;
             case Principal.PROFESOR:
                 this.eliminarProfesor(fila);
+            break;
+        }
+    }
+    
+    public void buscar() throws GlobalException, NoDataException, Exception{
+        String palabra = vista.TFbuscar.getText();
+        
+        switch(modelo.getTipo()){
+            case Principal.ALUMNO:
+                //this.buscarAlumno(palabra);
+            break;
+            case Principal.CARRERA:
+                //this.eliminarCarrera(fila);
+            break;
+            case Principal.CURSO:
+                //this.eliminarCurso(fila);
+            break;
+            case Principal.PROFESOR:
+                //this.eliminarProfesor(fila);
             break;
         }
     }

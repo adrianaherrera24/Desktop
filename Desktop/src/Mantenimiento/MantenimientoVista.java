@@ -5,6 +5,9 @@
  */
 package Mantenimiento;
 
+import AccesoDatos.GlobalException;
+import AccesoDatos.NoDataException;
+import EditarCursos.EditarControl;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.logging.Level;
@@ -79,6 +82,11 @@ public class MantenimientoVista extends javax.swing.JFrame implements Observer {
 
         JBbuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JBbuscar.setText("Buscar");
+        JBbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBbuscarActionPerformed(evt);
+            }
+        });
 
         LBbuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LBbuscar.setText("Buscar");
@@ -209,13 +217,17 @@ public class MantenimientoVista extends javax.swing.JFrame implements Observer {
         }
     }//GEN-LAST:event_TablaMouseClicked
 
+    private void JBbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbuscarActionPerformed
+        
+    }//GEN-LAST:event_JBbuscarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBagregar;
     private javax.swing.JButton JBbuscar;
     private javax.swing.JButton JBeliminar;
     private javax.swing.JButton JBlistar;
     private javax.swing.JLabel LBbuscar;
-    private javax.swing.JTextField TFbuscar;
+    public javax.swing.JTextField TFbuscar;
     private javax.swing.JTable Tabla;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

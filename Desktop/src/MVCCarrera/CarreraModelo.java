@@ -20,12 +20,21 @@ public class CarreraModelo extends Observable{
     int modo; // El modo define si se va a agregar (1) o editar(2)
     HashMap<String,String> errores;
     String mensaje;
+    int fila;
     
     public CarreraModelo(){}
     
     public void init(){
         setCarrera(new Carrera());
         limpiarErrores();
+    }
+
+    public int getFila() {
+        return fila;
+    }
+
+    public void setFila(int fila) {
+        this.fila = fila;
     }
 
     public int getModo() {

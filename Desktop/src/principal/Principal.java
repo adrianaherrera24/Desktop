@@ -8,6 +8,9 @@ package principal;
 import AccesoDatos.GlobalException;
 import AccesoDatos.NoDataException;
 import Control.Control;
+import EditarCursos.EditarControl;
+import EditarCursos.EditarModelo;
+import EditarCursos.EditarVista;
 import MVCAlumno.AlumnoControl;
 import MVCAlumno.AlumnoModelo;
 import MVCAlumno.AlumnoVista;
@@ -96,6 +99,13 @@ public class Principal {
         MATENIMIENTO_VISTA = vp;
         MANTENIMIENTOS_VISTA = vista;
         
+        /////////////////////////////////////////////////////////////////////////////////////////
+        /// EDITAR CURSOS DESDE CARRERA
+        EditarModelo modeloe = new EditarModelo();
+        EditarVista vistae = new EditarVista();
+        EditarControl controle = new EditarControl(principal,modeloe,vistae);
+        EDITAR_CURSO = vistae;
+        
         LoginVista vistal = new LoginVista();
         LoginControl controll = new LoginControl(vistal,principal);
         vistal.setVisible(true);
@@ -110,6 +120,7 @@ public class Principal {
     public static MantenimientoVista MATENIMIENTO_VISTA; 
     public static MantenimientosVista MANTENIMIENTOS_VISTA; 
     public static LoginVista LOGIN_VISTA; 
+    public static EditarVista EDITAR_CURSO;
     
     public static  final int  MODO_AGREGAR = 0;
     public static final int MODO_EDITAR = 1;

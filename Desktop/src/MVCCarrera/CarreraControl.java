@@ -6,6 +6,7 @@
 package MVCCarrera;
 
 import Control.Control;
+import EditarCursos.EditarControl;
 import LogicaNegocio.Carrera;
 import java.util.List;
 import Mantenimiento.MantenimientoModelo;
@@ -85,6 +86,11 @@ public class CarreraControl {
             modelo.setMensaje("ESPACIOS INCOMPLETOS.");
             modelo.setCarrera(nuevaCarrera);
         }
+    }
+    
+    public void edicionCursos(){
+        Principal.EDITAR_CURSO.setVisible(true);
+        Principal.EDITAR_CURSO.toFront();
     }
     
 }
