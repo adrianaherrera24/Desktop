@@ -222,8 +222,6 @@ public class MantenimientoVista extends javax.swing.JFrame implements Observer {
         try {
             this.control.buscar();
             this.TFbuscar.setText("");
-        } catch (NoDataException ex) {
-            Logger.getLogger(MantenimientoVista.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(MantenimientoVista.class.getName()).log(Level.SEVERE, null, ex);
         }

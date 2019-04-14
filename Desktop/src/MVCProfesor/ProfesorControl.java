@@ -65,7 +65,7 @@ public class ProfesorControl {
                         controlPrincipal.opcionesProfesores("AGREGAR", nuevoProfesor);
                         pmodelo.setMensaje("PROFESOR AGREGADO");
                         pmodelo.setProfesor(new Profesor());                        
-                        profesor = controlPrincipal.opcionesProfesores("LISTAR");
+                        profesor = controlPrincipal.listarProfesores();
                         profesorModelo.setProfesores(profesor);
                         pvista.setVisible(false);
                         break;
@@ -73,7 +73,7 @@ public class ProfesorControl {
                         controlPrincipal.opcionesProfesores("MODIFICAR", nuevoProfesor);
                         pmodelo.setMensaje("PROFESOR MODIFICADO");
                         pmodelo.setProfesor(nuevoProfesor);
-                        profesor = controlPrincipal.opcionesProfesores("LISTAR"); 
+                        profesor = controlPrincipal.listarProfesores(); 
                         profesorModelo.setProfesores(profesor);
                         pvista.setVisible(false);
                         break;

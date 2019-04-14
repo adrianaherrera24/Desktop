@@ -58,7 +58,7 @@ public class MantenimientoControl {
     }
     
     public void listarCursos() throws Exception {
-        List<Curso> curso = principal.opcionesCursos("LISTAR");
+        List<Curso> curso = principal.listarCursos();
         Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setCursos(curso);
     }
     
@@ -87,7 +87,7 @@ public class MantenimientoControl {
     }
     
     public void listarAlumnos() throws Exception {
-        List<Alumno> alumno = principal.opcionesAlumnos("LISTAR");
+        List<Alumno> alumno = principal.listarAlumnos();
         Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setAlumnos(alumno);
     }
 
@@ -116,7 +116,7 @@ public class MantenimientoControl {
     }
    
     public void listarCarreras() throws Exception {
-        List<Carrera> carrera = principal.opcionesCarreras("LISTAR");
+        List<Carrera> carrera = principal.listarCarreras();
         Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setCarreras(carrera);
     }
     
@@ -145,7 +145,7 @@ public class MantenimientoControl {
     }
     
     public void listarProfesores() throws Exception {
-        List<Profesor> profesor = principal.opcionesProfesores("LISTAR");
+        List<Profesor> profesor = principal.listarProfesores();
         Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setProfesores(profesor);
     }
 
@@ -158,16 +158,16 @@ public class MantenimientoControl {
        
         switch(modelo.getTipo()){
             case Principal.ALUMNO:
-                this.listarAlumnos();
+                Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setAlumnos(principal.listarAlumnos());
             break;
             case Principal.CARRERA:
-                this.listarCarreras();
+                Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setCarreras(principal.listarCarreras());
             break;
             case Principal.CURSO:
-                this.listarCursos();
+                Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setCursos(principal.listarCursos());
             break;
             case Principal.PROFESOR:
-                this.listarProfesores();
+                Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setProfesores(principal.listarProfesores());
             break;
         }
     }

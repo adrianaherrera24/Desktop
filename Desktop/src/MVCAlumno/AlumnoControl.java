@@ -70,7 +70,7 @@ public class AlumnoControl {
                         controlPrincipal.opcionesAlumnos("AGREGAR", nuevoAlumno);
                         pmodelo.setMensaje("ALUMNO AGREGADO");
                         pmodelo.setAlumno(new Alumno());                        
-                        alumno = controlPrincipal.opcionesAlumnos("LISTAR");
+                        alumno = controlPrincipal.listarAlumnos();
                         alumnosModelo.setAlumnos(alumno);
                         pvista.setVisible(false);
                         break;
@@ -78,7 +78,7 @@ public class AlumnoControl {
                         controlPrincipal.opcionesAlumnos("MODIFICAR", nuevoAlumno);
                         pmodelo.setMensaje("ALUMNO MODIFICADO");
                         pmodelo.setAlumno(nuevoAlumno);
-                        alumno = controlPrincipal.opcionesAlumnos("LISTAR"); 
+                        alumno = controlPrincipal.listarAlumnos(); 
                         alumnosModelo.setAlumnos(alumno);
                         pvista.setVisible(false);
                         break;

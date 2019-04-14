@@ -25,7 +25,7 @@ public class CursoControl {
     CursoVista vista;
 
     public CursoControl(CursoVista vista, CursoModelo modelo, Control controlPrincipal) throws GlobalException, NoDataException {
-        modelo.init(controlPrincipal.opcionesCarreras("LISTAR").toArray(new Carrera[0]));
+        modelo.init(controlPrincipal.listarCarreras().toArray(new Carrera[0]));
         this.controlPrincipal = controlPrincipal;
         this.vista = vista;
         this.modelo = modelo;
@@ -68,7 +68,7 @@ public class CursoControl {
                         controlPrincipal.opcionesCursos("AGREGAR", nuevoCurso);
                         modelo.setMensaje("CURSO AGREGADO");
                         modelo.setCurso(new Curso());                        
-                        curso = controlPrincipal.opcionesCursos("LISTAR");
+                        curso = controlPrincipal.listarCursos();
                         mmodelo.setCursos(curso); // Se ingresa en el array en el modelo
                         vista.setVisible(false);
                         break;
@@ -76,7 +76,7 @@ public class CursoControl {
                         controlPrincipal.opcionesCursos("MODIFICAR", nuevoCurso);
                         modelo.setMensaje("CURSO MODIFICADO");
                         modelo.setCurso(nuevoCurso);
-                        curso = controlPrincipal.opcionesCursos("LISTAR");
+                        curso = controlPrincipal.listarCursos();
                         mmodelo.setCursos(curso);
                         vista.setVisible(false);
                         break;

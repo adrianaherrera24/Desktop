@@ -61,7 +61,7 @@ public class CarreraControl {
                         controlPrincipal.opcionesCarreras("AGREGAR", nuevaCarrera);
                         modelo.setMensaje("CARRERA AGREGADA");
                         modelo.setCarrera(new Carrera());                        
-                        carrera = controlPrincipal.opcionesCarreras("LISTAR");
+                        carrera = controlPrincipal.listarCarreras();
                         csModelo.setCarreras(carrera); // Se ingresa en el array en el modelo
                         vista.setVisible(false);
                         break;
@@ -69,7 +69,7 @@ public class CarreraControl {
                         controlPrincipal.opcionesCarreras("MODIFICAR", nuevaCarrera);
                         modelo.setMensaje("CARRERA MODIFICADA");
                         modelo.setCarrera(nuevaCarrera);
-                        carrera = controlPrincipal.opcionesCarreras("LISTAR");
+                        carrera = controlPrincipal.listarCarreras();
                         csModelo.setCarreras(carrera);
                         vista.setVisible(false);
                         break;
