@@ -14,6 +14,9 @@ import LogicaNegocio.Carrera;
 import LogicaNegocio.Curso;
 import LogicaNegocio.Profesor;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import principal.Principal;
 
 /**
@@ -22,15 +25,13 @@ import principal.Principal;
  */
 public class MantenimientoControl {
     
-    Control controlPrincipal;
+    Control principal;
     MantenimientoModelo modelo;
     MantenimientoVista vista;
     
-    String tipoCarrera;
-    
     public MantenimientoControl(Control controlPrincipal, MantenimientoModelo modelo, MantenimientoVista vista) {
         modelo.init();
-        this.controlPrincipal = controlPrincipal;
+        this.principal = controlPrincipal;
         this.modelo = modelo;
         this.vista = vista;
         vista.setMantenimientoControl(this);
@@ -57,12 +58,12 @@ public class MantenimientoControl {
     }
     
     public void listarCursos() throws Exception {
-        List<Curso> curso = controlPrincipal.opcionesCursos("LISTAR");
+        List<Curso> curso = principal.opcionesCursos("LISTAR");
         Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setCursos(curso);
     }
     
     public void eliminarCurso(int row) throws Exception {
-        controlPrincipal.opcionesCursos("ELIMINAR", modelo.getCursos().getRowAt(row).getId());
+        principal.opcionesCursos("ELIMINAR", modelo.getCursos().getRowAt(row).getId());
         this.listarCursos();
     }
    
@@ -86,12 +87,12 @@ public class MantenimientoControl {
     }
     
     public void listarAlumnos() throws Exception {
-        List<Alumno> alumno = controlPrincipal.opcionesAlumnos("LISTAR");
+        List<Alumno> alumno = principal.opcionesAlumnos("LISTAR");
         Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setAlumnos(alumno);
     }
 
     public void eliminarAlumno(int row) throws GlobalException, NoDataException, Exception{
-        controlPrincipal.opcionesAlumnos("ELIMINAR", modelo.getAlumnos().getRowAt(row).getId());
+        principal.opcionesAlumnos("ELIMINAR", modelo.getAlumnos().getRowAt(row).getId());
         this.listarAlumnos();
     }
    
@@ -115,12 +116,12 @@ public class MantenimientoControl {
     }
    
     public void listarCarreras() throws Exception {
-        List<Carrera> carrera = controlPrincipal.opcionesCarreras("LISTAR");
+        List<Carrera> carrera = principal.opcionesCarreras("LISTAR");
         Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setCarreras(carrera);
     }
     
     public void eliminarCarrera(int row) throws Exception {
-        controlPrincipal.opcionesCarreras("ELIMINAR", modelo.getCarreras().getRowAt(row).getId());
+        principal.opcionesCarreras("ELIMINAR", modelo.getCarreras().getRowAt(row).getId());
         this.listarCarreras();
     }
     
@@ -144,12 +145,12 @@ public class MantenimientoControl {
     }
     
     public void listarProfesores() throws Exception {
-        List<Profesor> profesor = controlPrincipal.opcionesProfesores("LISTAR");
+        List<Profesor> profesor = principal.opcionesProfesores("LISTAR");
         Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setProfesores(profesor);
     }
 
     public void eliminarProfesor(int row) throws GlobalException, NoDataException, Exception {
-        controlPrincipal.opcionesProfesores("ELIMINAR", modelo.getProfesores().getRowAt(row).getId());
+        principal.opcionesProfesores("ELIMINAR", modelo.getProfesores().getRowAt(row).getId());
         this.listarProfesores();
     }
     
@@ -226,22 +227,26 @@ public class MantenimientoControl {
         }
     }
     
-    public void buscar() throws GlobalException, NoDataException, Exception{
-        String palabra = vista.TFbuscar.getText();
-        
-        switch(modelo.getTipo()){
-            case Principal.ALUMNO:
-                //this.buscarAlumno(palabra);
-            break;
-            case Principal.CARRERA:
-                //this.eliminarCarrera(fila);
-            break;
-            case Principal.CURSO:
-                //this.eliminarCurso(fila);
-            break;
-            case Principal.PROFESOR:
-                //this.eliminarProfesor(fila);
-            break;
+    public void buscar(){
+        try {
+            String palabra = vista.TFbuscar.getText();
+            
+            switch(modelo.getTipo()){
+                case Principal.ALUMNO:
+                    Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setAlumnos(principal.buscarAlumnos(palabra));
+                    break;
+                case Principal.CARRERA:
+                    Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setCarreras(principal.buscarCarreras(palabra));
+                    break;
+                case Principal.CURSO:
+                    Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setCursos(principal.buscarCursos(palabra));
+                    break;
+                case Principal.PROFESOR:
+                    Principal.MATENIMIENTO_VISTA.getMantenimientoModelo().setProfesores(principal.buscarProfesores(palabra));
+                    break;
+            }
+        } catch (GlobalException | NoDataException ex) {
+            JOptionPane.showMessageDialog(this.vista, "No hay coincidencias", "",JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

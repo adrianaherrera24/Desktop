@@ -5,9 +5,7 @@
  */
 package Mantenimiento;
 
-import AccesoDatos.GlobalException;
 import AccesoDatos.NoDataException;
-import EditarCursos.EditarControl;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.logging.Level;
@@ -109,6 +107,7 @@ public class MantenimientoVista extends javax.swing.JFrame implements Observer {
         });
         jScrollPane1.setViewportView(Tabla);
 
+        JBlistar.setBackground(new java.awt.Color(0, 102, 255));
         JBlistar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JBlistar.setText("Listar");
         JBlistar.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +116,7 @@ public class MantenimientoVista extends javax.swing.JFrame implements Observer {
             }
         });
 
+        JBagregar.setBackground(new java.awt.Color(0, 153, 0));
         JBagregar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JBagregar.setText("Agregar");
         JBagregar.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +125,7 @@ public class MantenimientoVista extends javax.swing.JFrame implements Observer {
             }
         });
 
+        JBeliminar.setBackground(new java.awt.Color(255, 51, 51));
         JBeliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JBeliminar.setText("Eliminar");
         JBeliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -218,7 +219,14 @@ public class MantenimientoVista extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_TablaMouseClicked
 
     private void JBbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbuscarActionPerformed
-        
+        try {
+            this.control.buscar();
+            this.TFbuscar.setText("");
+        } catch (NoDataException ex) {
+            Logger.getLogger(MantenimientoVista.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(MantenimientoVista.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_JBbuscarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

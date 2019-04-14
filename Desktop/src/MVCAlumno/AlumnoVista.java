@@ -36,6 +36,7 @@ public class AlumnoVista extends javax.swing.JFrame implements Observer {
     
     public AlumnoVista() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     @Override

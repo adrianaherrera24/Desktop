@@ -36,7 +36,7 @@ public class LoginControl {
     
     public void comprobarUsuario(){
         String user = vista.TFusuario.getText();
-        String password = vista.TFcontrasena.getText();
+        String password = vista.PFpass.getText();
         
         try {
             usuario = principal.obtenerUsuarios();

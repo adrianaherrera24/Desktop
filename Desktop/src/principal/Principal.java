@@ -43,7 +43,7 @@ public class Principal {
         
         // Da estilo a los componentes de la ventanas
         try { 
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"); 
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (Exception ex){ 
             ex.printStackTrace();
         }

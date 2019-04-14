@@ -21,6 +21,7 @@ public class CarreraVista extends javax.swing.JFrame implements java.util.Observ
     
     public CarreraVista() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     public CarreraModelo getCarreraModelo() {

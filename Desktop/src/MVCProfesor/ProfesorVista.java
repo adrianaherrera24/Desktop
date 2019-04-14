@@ -36,6 +36,7 @@ public class ProfesorVista extends javax.swing.JFrame implements Observer {
     
     public ProfesorVista() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     @Override

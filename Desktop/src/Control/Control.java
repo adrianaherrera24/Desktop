@@ -177,4 +177,17 @@ public class Control {
         return cursos;
     }
  
+    ////////////////////////////// Busquedas de datos
+    public List<Alumno> buscarAlumnos(String palabra) throws GlobalException, NoDataException{
+        return sa.buscarAlumnos(palabra);
+    }
+    public List<Curso> buscarCursos(String palabra) throws GlobalException, NoDataException{
+        return scc.buscarCursos(palabra);
+    }
+    public List<Carrera> buscarCarreras(String palabra) throws GlobalException, NoDataException{
+        return sc.buscarCarreras(palabra);
+    }
+    public List<Profesor> buscarProfesores(String palabra) throws GlobalException, NoDataException{
+        return sp.buscarProfesores(palabra);
+    }
 }

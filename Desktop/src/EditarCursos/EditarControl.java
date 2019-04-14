@@ -10,8 +10,6 @@ import AccesoDatos.NoDataException;
 import Control.Control;
 import LogicaNegocio.Curso;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import principal.Principal;
 

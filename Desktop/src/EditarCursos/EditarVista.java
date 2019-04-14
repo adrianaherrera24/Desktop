@@ -55,6 +55,8 @@ public class EditarVista extends javax.swing.JFrame implements Observer{
         JBbuscar = new javax.swing.JButton();
         JBlistar = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         TablaEditar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

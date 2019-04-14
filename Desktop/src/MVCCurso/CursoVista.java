@@ -21,6 +21,7 @@ public class CursoVista extends javax.swing.JFrame implements Observer{
 
     public CursoVista() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     public CursoControl getCursoControl() {
