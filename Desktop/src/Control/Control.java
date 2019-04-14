@@ -11,10 +11,12 @@ import AccesoDatos.ServicioAlumnos;
 import AccesoDatos.ServicioCarreras;
 import AccesoDatos.ServicioCursos;
 import AccesoDatos.ServicioProfesores;
+import AccesoDatos.ServicioUsuarios;
 import LogicaNegocio.Alumno;
 import LogicaNegocio.Carrera;
 import LogicaNegocio.Curso;
 import LogicaNegocio.Profesor;
+import LogicaNegocio.Usuario;
 import java.util.List;
 
 /**
@@ -27,6 +29,7 @@ public class Control {
     private ServicioCursos scc;
     private ServicioAlumnos sa;
     private ServicioProfesores sp;
+    private ServicioUsuarios su;
     
     // Preguntar sobre instancia unica
     private static Control uniqueInstance;
@@ -46,6 +49,7 @@ public class Control {
         scc = new ServicioCursos();
         sa = new ServicioAlumnos();
         sp = new ServicioProfesores();
+        su = new ServicioUsuarios();
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -162,6 +166,10 @@ public class Control {
                 sp.eliminarProfesores(codigo);
             break;
         }
+    }
+    
+    public List<Usuario> obtenerUsuarios() throws GlobalException, NoDataException{
+        return su.listarUsuarios();
     }
  
 }

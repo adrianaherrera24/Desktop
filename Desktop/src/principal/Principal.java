@@ -17,6 +17,8 @@ import MVCCarrera.CarreraVista;
 import MVCCurso.CursoControl;
 import MVCCurso.CursoModelo;
 import MVCCurso.CursoVista;
+import MVCLogin.LoginControl;
+import MVCLogin.LoginVista;
 import MVCProfesor.ProfesorControl;
 import MVCProfesor.ProfesorModelo;
 import MVCProfesor.ProfesorVista;
@@ -93,7 +95,10 @@ public class Principal {
         MantenimientosControl control = new MantenimientosControl(modelo, vista);
         MATENIMIENTO_VISTA = vp;
         MANTENIMIENTOS_VISTA = vista;
-        vista.setVisible(true);
+        
+        LoginVista vistal = new LoginVista();
+        LoginControl controll = new LoginControl(vistal,principal);
+        vistal.setVisible(true);
         
     }
     
@@ -104,6 +109,7 @@ public class Principal {
     
     public static MantenimientoVista MATENIMIENTO_VISTA; 
     public static MantenimientosVista MANTENIMIENTOS_VISTA; 
+    public static LoginVista LOGIN_VISTA; 
     
     public static  final int  MODO_AGREGAR = 0;
     public static final int MODO_EDITAR = 1;

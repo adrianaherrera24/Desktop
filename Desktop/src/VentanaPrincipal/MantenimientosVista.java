@@ -14,19 +14,10 @@ import principal.Principal;
 public class MantenimientosVista extends javax.swing.JFrame {
 
     MantenimientosControl control;
-    MantenimientosModelo modelo;
     
     public void setMantenimientoControl(MantenimientosControl control){
         this.control = control;
     }
-   /* public void setMantenimientoModelo(MantenimientosModelo modelo){
-        this.modelo = modelo;
-       modelo.addObserver(this);
-    }*/
-
- /*   public MantenimientosModelo getMantenimientoModelo() {
-        return modelo;
-    }*/
     
     public MantenimientosVista() {
         initComponents();
@@ -42,7 +33,6 @@ public class MantenimientosVista extends javax.swing.JFrame {
         JBcursos = new javax.swing.JButton();
         JBprofesores = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mantenimiento");
 
         LBtitulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
